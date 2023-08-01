@@ -1,0 +1,57 @@
+<!-- <p>
+    Edit course from comp in Dialog
+</p> -->
+
+
+<h2 mat-dialog-title>
+  {{course.description}}
+</h2>
+
+
+<mat-dialog-content [formGroup]="form">
+    <mat-form-field>
+     <input type="text"
+     formControlName = "description"
+     matInput placeholder="course Description">   
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-select formControlName="category" placeholder="Select Category">
+            <mat-option value="BEGINEER">
+                begineer
+            </mat-option>
+            <mat-option value="INTERMEDIATE">
+                intrermediate
+            </mat-option>
+            <mat-option value="ADVANCED">
+               advanced
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input  matInput  #searchInput 
+      formControlName="releaseAt"
+      [matDatepicker]="myDatepicker">
+     <mat-datepicker-toggle matSuffix [for]="myDatepicker">
+
+     </mat-datepicker-toggle>
+      <mat-datepicker #myDatepicker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field>
+        <textarea matInput placeholder="Description" formControlName="longDescription"></textarea>
+    </mat-form-field>
+
+
+     <mat-dialog-actions>
+        <button mat-raised-button  (click)="close()">
+        Close
+        </button>
+    
+        <button mat-raised-button color="primary" (click)="save()">
+        Save Course
+        </button>
+     </mat-dialog-actions>
+
+</mat-dialog-content>
